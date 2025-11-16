@@ -15,6 +15,9 @@ origins = [
     "http://localhost:8000",
     "http://127.0.0.1:8000",
     "http://localhost",
+    "http://0.0.0.0:8000",
+    "https://streetless-heidy-folkish.ngrok-free.dev",
+    "http://127.0.0.1:4040",
     "*",   # ← тимчасово, поки розробка (можемо забрати)
 ]
 

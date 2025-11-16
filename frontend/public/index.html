@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>UAV Configurator</title>
+    <link rel="stylesheet" href="style.css" /> <!-- твій CSS -->
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Конфігуратор БПЛА</h1>
+
+    <form id="uavForm">
+
+        <label>Тип системи</label>
+        <select name="system_type" id="system_type">
+            <option value="electric">Електрична</option>
+            <option value="ice">ДВЗ</option>
+        </select>
+
+        <label>Густина повітря (ρ)</label>
+        <input type="number" step="0.01" name="air_density" required />
+
+        <label>Швидкість польоту (V)</label>
+        <input type="number" step="0.1" name="cruise_speed" required />
+
+        <label>Площа крила (S)</label>
+        <input type="number" step="0.01" name="wing_area" required />
+
+        <label>Коефіцієнт опору (Cd)</label>
+        <input type="number" step="0.001" name="drag_coefficient" required />
+
+        <label>Крок гвинта (Pitch)</label>
+        <input type="number" name="prop_pitch" required />
+
+        <label>Оберти двигуна (RPM)</label>
+        <input type="number" name="rpm" required />
+
+        <!-- Для ELECTRIC -->
+        <div id="electric_fields">
+            <label>Ємність батареї (Wh)</label>
+            <input type="number" name="battery_capacity" />
+
+            <label>Ефективність системи (0.0-1.0)</label>
+            <input type="number" step="0.01" name="system_efficiency" />
+        </div>
+
+        <!-- Для ICE -->
+        <div id="ice_fields" style="display:none;">
+            <label>Маса палива (кг)</label>
+            <input type="number" name="fuel_mass" />
+
+            <label>Ефективність пропелера</label>
+            <input type="number" step="0.01" name="prop_efficiency" />
+
+            <label>Потужність двигуна (кВт)</label>
+            <input type="number" name="engine_power_kw" />
+
+            <label>BSFC (кг/кВт·год)</label>
+            <input type="number" step="0.001" name="bsfc" />
+        </div>
+
+        <button type="submit">Розрахувати</button>
+
+    </form>
+
+    <div id="result" class="result" style="display:none;"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
